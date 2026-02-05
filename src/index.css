@@ -1,0 +1,249 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #222 !important;
+  color: white !important;
+  font-family: sans-serif;
+}
+
+.boxed {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+
+}
+
+.ms_wrap {
+  flex-wrap: wrap;
+}
+
+.ms_no_wrap {
+  flex-wrap: nowrap;
+}
+
+.ms_between {
+  justify-content: space-between;
+}
+
+.ms_v_center {
+  align-items: center;
+}
+
+.ms_j_center {
+  justify-content: center;
+}
+
+/* ----------HEADER style---------------------->^.^<----------------------------------------- */
+.ms_bg_light {
+  background-color: #F8F9FA;
+  color: #222222;
+}
+
+nav {
+  padding: 1.5rem 1rem;
+}
+
+
+nav a {
+  float: left;
+  white-space: nowrap;
+  margin: 0 2rem;
+  color: #222222;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav .active {
+  color: #802C6E;
+  text-decoration: underline;
+  text-underline-offset: 2.1rem;
+  text-decoration-thickness: 0.5rem;
+
+}
+
+.logo span {
+  padding: 0 1rem;
+  display: inline-block;
+}
+
+.logo img {
+  width: 3rem;
+
+}
+
+
+/* ----------------FOOTER style---------->^.^<-------------------------------------- */
+
+footer {
+  background-color: #CED4DA;
+  color: #222222;
+  padding: 1rem 1rem;
+
+  margin-bottom: 0;
+}
+
+/* ----------------CARD style---------->^.^<-------------------------------------- */
+.card_container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.full_width {
+  width: 100%;
+}
+
+.half_width {
+  width: 50%;
+}
+
+.card {
+
+  background-color: #595c5e;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  width: calc((100% - 4rem) / 5);
+}
+
+.card h2 {
+  width: 100%;
+  font-size: larger;
+  position: relative;
+
+}
+
+.card h2 .date {
+  position: absolute;
+  right: 0;
+  font-size: medium;
+}
+
+.card h2 strong {
+  position: absolute;
+  left: 0;
+  width: 70%;
+  white-space: pre-wrap;
+}
+
+.card img {
+  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 1/1.5;
+  overflow: hidden;
+}
+
+/* --------------Home style---------------->^.^<-------------------- */
+.jumbo {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+}
+
+.marquee h2 {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(-300%);
+  }
+}
+
+/* ------>^.^<--------DETAILS style---------------->^.^<-------------------- */
+
+.details {
+  padding: 4rem 2rem;
+}
+
+.details h1 {
+  margin-bottom: 2rem;
+}
+
+.category {
+  color: #5397df;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.details_texts {
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.ratings {
+  font-weight: 600;
+}
+
+.ratings span {
+  font-size: small;
+  font-weight: 400;
+}
+
+.card_container a:visited,
+.card_container a:link {
+  color: #ffffff;
+}
+
+/* -------bottoni------------>^.^<---------------------------- */
+.btn {
+  display: inline-block;
+  border-color: #802C6E;
+  padding: 0.5rem 1rem;
+  color: #802C6E;
+  text-decoration: none;
+  border: solid 1px;
+  border-radius: 2rem;
+  background-color: #F8F9FA;
+}
+
+.btn:hover {
+  border-color: #F8F9FA;
+  background-color: #802C6E;
+  color: #F8F9FA;
+}
+
+.btn-right {
+  margin-right: 0;
+}
+
+.d_none {
+  visibility: hidden;
+}
+
+.navigationBtn {
+  margin-top: 2rem;
+}
