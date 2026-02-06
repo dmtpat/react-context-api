@@ -1,5 +1,7 @@
+import { BudgetProvider } from "./contexts/BudgetContext";
 
 import { BrowserRouter, Routes, Route, } from "react-router-dom";
+
 import DefaultLayout from './layouts/DefaultLayout';
 import Page_home from "./pages/page_home"
 import Page_chiSiamo from "./pages/page_chiSiamo"
@@ -9,7 +11,7 @@ import Page_prodotti_detail from "./pages/page_prodotti_detail"
 function App() {
 
 
-  return (
+  return (<BudgetProvider>
     <BrowserRouter>
       <Routes>
         <Route Component={DefaultLayout} >
@@ -22,6 +24,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+  </BudgetProvider>
   )
 }
 
