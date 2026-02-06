@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useBudget } from "../contexts/BudgetContext";
 
 function Header() {
-    const { budgetMode, setBudgetMode } = useBudget();
+    const { budgetMode, toggleBudgetMode } = useBudget();
 
     return (
         <nav id="navBar" className="flex ms_bg_light ms_between ms_v_center full_width">
@@ -16,7 +16,7 @@ function Header() {
                 <NavLink className="link" to="/">Home</NavLink>
                 <NavLink className="link" to="/chiSiamo">Chi Siamo</NavLink>
                 <NavLink className="link" to="/prodotti">Prodotti</NavLink>
-                <button className="btn" >{budgetMode ? "BudgetMode ON" : "BudgetMode OFF"}</button>
+                <button className="btn" onClick={toggleBudgetMode} >{budgetMode ? "BudgetMode  ON" : "BudgetMode OFF"}</button>
             </div>
         </nav >
     )

@@ -16,10 +16,16 @@ function BudgetProvider({ children }) {
 
     const [budgetMode, setBudgetMode] = useState(defaultBudgetMode);
 
+    // creazione di una funzione toggle che va a modificare il valore dello state
+    // budgetMode e che poi sarà inserità nell'obj value visibile in tutti i componenti
+    function toggleBudgetMode() {
+        setBudgetMode(!budgetMode);
+    }
+
     // adesso bisogna salòvare questi dati in un obj che sarà quello
     // che sarà effettivamente visibile da tutti
 
-    const value = { budgetMode, setBudgetMode };
+    const value = { budgetMode, toggleBudgetMode };
 
     return <BudgetContext.Provider value={value}>
         {children}
