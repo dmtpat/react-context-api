@@ -1,29 +1,43 @@
-# react-router
+# router-context-api
 
->Creiamo il frontend del nostro mini e-commerce e le sue pagine principali!
->Useremo [Fake Store API](https://fakestoreapi.com/) come backend fittizio per simulare i dati dei prodotti.
+>Estendiamo il nostro mini e-commerce introducendo le Context API di React.
+>Useremo un contesto per gestire una modalità budget, che permette all’utente di visualizzare solo i prodotti più economici.
 
-## PARTE 1
-Installiamo React Router DOM: ==npm i react-router-dom==
-Creiamo almeno 3 pagine principali:
-- [x] Homepage (con un messaggio di benvenuto o immagine promozionale)
-- [x] Chi siamo
-- [x]Prodotti (pagina che mostrerà la lista dei prodotti prendendoli da [qui](https://fakestoreapi.com/products))
-- [x]Implementiamo una Navbar visibile in tutte le pagine per navigare tra di esse
+## MILESTONE 1
+Create un nuovo context chiamato BudgetContext
 
-### BONUS PARTE 1
-1. [x] Usiamo i layout per evitare di importare la navbar in tutte le pagine: centralizziamola in un componente <mark>Layout</mark>
-    - [x] Gestiamo la classe <mark>active</mark> per i link attivi nella Navbar
+- Deve contenere uno stato budgetMode di tipo booleano (true/false)
+- Deve fornire anche la funzione per modificarlo (setBudgetMode)
+- Wrappiamo l’intera applicazione con il BudgetProvider
 
-2. Nella pagina Prodotti, ogni prodotto deve essere cliccabile (usa `<Link>`)
-    - Aggiungiamo la pagina di dettaglio per ogni prodotto, con le informazioni prese da <mark>https://fakestoreapi.com/products/:id</mark>
-    - Configuriamo il routing dinamico per leggere l’<mark>id</mark> del prodotto dalla URL
+## MILESTONE 2
+Leggete/scrivete il context da Navbar:
 
-### BONUS PARTE 2
-Aggiungiamo una navigazione programmatica che riporti alla pagina di listato se viene cercato un prodotto che non esiste.
+- Create un componente Navbar.jsx (se non lo avete già)
+- Inseritelo in App.jsx o nel vostro componente di Layout
+- All’interno della Navbar aggiungete un bottone “Modalità Budget” che attiva/disattiva budgetMode con un click
+- Il bottone deve cambiare etichetta in base allo stato (Attiva Modalità Budget / Disattiva Modalità Budget)
 
-Super bonus
-: aggiungiamo nella pagina di dettaglio dei pulsanti per navigare al prodotto precedente o successivo (usando useNavigate() programmaticamente)
+## MILESTONE 3
+Modificate la pagina dei prodotti per filtrarli:
 
-NOTE
-: Aiutatevi riguardando le slide, il live coding e gli ultimi minuti del record in cui presento la traccia.
+- Recuperate il valore budgetMode usando il context
+- Se budgetMode === true, mostrate solo i prodotti con price <= 30
+- Altrimenti, mostrare tutti i prodotti normalmente
+
+---
+
+## BONUS
+ Trasformare la modalità budget in un vero e proprio filtro:
+
+- Trasformate il booleano budgetMode in un valore numerico maxPrice (es.30, 50ecc). Il valore di partenza deve essere null .
+- Nel componente navbar al posto del bottone inserite un campo input di tipo number. Questo campo deve essere legato al valore maxPrice del context
+- Nella pagina prodotti, verranno mostrati soltanto i prodotti con price <= maxPrice
+- ‼️Se max price è null o comunque non è settato, devono essere visualizzati tutti i prodotti
+
+---
+---
+
+#### NOTE
+- Potete procedere in uno dei modi visti in Live Coding, l'importante è capire cosa facciamo e costruire un pezzo per volta!
+- Non disperate: stiamo lavorando con tecniche molto avanzate e ci vuole del tempo per farle proprie 🚀
