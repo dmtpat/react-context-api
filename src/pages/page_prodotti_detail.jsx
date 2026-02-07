@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons'
 
 function Product_detail() {
     const { id } = useParams();
@@ -29,10 +29,14 @@ function Product_detail() {
 
     function ratingStars() {
         const oneStar = <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} />;
-        let stars = oneStar;
-        for (let i = 1; i < rates.rate; i++) {
-            stars += oneStar;
+        const halfStar = <FontAwesomeIcon icon={faStarHalfStroke} style={{ color: "#FFD43B", }} />
+        const stars = [];
+        for (let i = 0; i < parseInt(rates.rate); i++) {
+            stars.push(oneStar)
         }
+        if (rates.rate > parseInt(rates.rate))
+            stars.push(halfStar)
+
         return stars;
     }
 
@@ -47,9 +51,9 @@ function Product_detail() {
                     </div>
                     <div className="half_width flex details_texts">
                         <div className="ratings">
-                            {/* {ratingStars()} */}
                             {rates.rate}
-                            <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} />
+                            {ratingStars()}
+                            {/* <FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} /> */}
                             <span> {rates.count}</span>
                         </div>
                         <p>{prodotto.description}</p>
