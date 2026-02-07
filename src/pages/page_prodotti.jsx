@@ -34,7 +34,7 @@ function Page_prodotti() {
 
     return (
         <main className="boxed">
-            <h1>Questi sono i nostri prodotti</h1>
+            <h1>Questi sono i nostri prodotti {budgetMode && "Budget"}</h1>
             <div className="card_container">
                 {showedProducts.map((prodotto) => {
                     return (
