@@ -1,5 +1,5 @@
 
-function ChiSiamo() {
+function PageChiSiamo() {
     return (<main>
         <div className="boxed">
             <h1>questa è la pagina di Chi Siamo</h1>
@@ -7,4 +7,4 @@ function ChiSiamo() {
     </main>
     )
 }
-export default ChiSiamo
+export default PageChiSiamo

@@ -31,28 +31,28 @@ body {
 
 }
 
-.ms_wrap {
+.wrap {
   flex-wrap: wrap;
 }
 
-.ms_no_wrap {
+.no_wrap {
   flex-wrap: nowrap;
 }
 
-.ms_between {
+.between {
   justify-content: space-between;
 }
 
-.ms_v_center {
+.v_center {
   align-items: center;
 }
 
-.ms_j_center {
+.j_center {
   justify-content: center;
 }
 
 /* ----------HEADER style---------------------->^.^<----------------------------------------- */
-.ms_bg_light {
+.bg_light {
   background-color: #F8F9FA;
   color: #222222;
 }
@@ -236,9 +236,9 @@ footer {
   color: #F8F9FA;
 }
 
-.btn-right {
+/* .btn-right {
   margin-right: 0;
-}
+} */
 
 .d_none {
   visibility: hidden;

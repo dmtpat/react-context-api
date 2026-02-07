@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons'
 
-function Product_detail() {
+function PageProdottiDetail() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [prodotto, setProdotto] = useState({});
@@ -60,7 +60,7 @@ function Product_detail() {
                         <p>&euro; {prodotto.price}</p>
                     </div>
                 </div>
-                <div className='full_width flex ms_between navigationBtn'>
+                <div className='full_width flex between navigationBtn'>
                     <button className={`btn ${id == 1 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) - 1}`)}>Vai al prodotto precedente</button>
                     <button className={`btn ${id == 20 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) + 1}`)}>Vai al prodotto successivo</button>
                 </div>
@@ -69,4 +69,4 @@ function Product_detail() {
     )
 }
 
-export default Product_detail
+export default PageProdottiDetail

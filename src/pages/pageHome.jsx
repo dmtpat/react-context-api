@@ -1,8 +1,8 @@
 
 
-function Home() {
+function PageHome() {
     return (<main>
-        <div className="boxed flex ms_j_center ms_v_center">
+        <div className="boxed flex j_center v_center">
             <h1>Questa è la home page del mio e-commerce</h1>
         </div>
         <div className="full_width">
@@ -12,4 +12,4 @@ function Home() {
     </main>
     )
 }
-export default Home
+export default PageHome
