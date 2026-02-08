@@ -10,7 +10,7 @@ const BudgetContext = createContext(null);
 
 function BudgetProvider({ children }) {
 
-    const defaultBudgetMode = false;
+    const defaultBudgetMode = null;
 
     //all'interno del provider creo uno state per il dato che dopbiamo utilizzare
 
@@ -21,11 +21,15 @@ function BudgetProvider({ children }) {
     function toggleBudgetMode() {
         setBudgetMode(!budgetMode);
     }
+    //funzione che altera il valore di budget mode
+    function budgetValue(e) {
+        setBudgetMode(e.target.value);
+    }
 
     // adesso bisogna salòvare questi dati in un obj che sarà quello
     // che sarà effettivamente visibile da tutti
 
-    const value = { budgetMode, toggleBudgetMode };
+    const value = { budgetMode, budgetValue };
 
     return <BudgetContext.Provider value={value}>
         {children}
