@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons'
+import { useBudget } from "../contexts/BudgetContext";
+import { useData } from "../contexts/DataContext";
 
 function PageProdottiDetail() {
     const { id } = useParams();
@@ -10,6 +12,8 @@ function PageProdottiDetail() {
     const [prodotto, setProdotto] = useState({});
     const [rates, setRates] = useState({});
     let apiUrl = `https://fakestoreapi.com/products/${parseInt(id)}`;
+    const { budgetMode } = useBudget();
+    const { showedProducts } = useData();
 
     function getData() {
 
@@ -40,6 +44,24 @@ function PageProdottiDetail() {
         return stars;
     }
 
+    function chooseNavigation(id) {
+        if (budgetMode) {
+            const actualIndex = showedProducts.findIndex((prodotto) => prodotto.id == id)
+            console.log("index su showedProducts", actualIndex);
+            return (<>
+                <button className={`btn ${actualIndex == 0 && "d_none"}`} onClick={() => navigate(`/prodotti/${showedProducts[actualIndex - 1].id}`)}>Prodotto budget precedente</button>
+                <button className={`btn ${showedProducts[actualIndex + 1] == undefined && "d_none"}`} onClick={() => navigate(`/prodotti/${showedProducts[actualIndex + 1].id}`)}>Prodotto budget successivo</button>
+            </>
+            )
+        } else {
+            return (<>
+                <button className={`btn ${id == 1 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) - 1}`)}>Vai al prodotto precedente</button>
+                <button className={`btn ${id == 20 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) + 1}`)}>Vai al prodotto successivo</button>
+            </>
+            )
+        }
+    }
+
     return (
         <main>
             <div id='productDetail' className="boxed details">
@@ -61,8 +83,9 @@ function PageProdottiDetail() {
                     </div>
                 </div>
                 <div className='full_width flex between navigationBtn'>
-                    <button className={`btn ${id == 1 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) - 1}`)}>Vai al prodotto precedente</button>
-                    <button className={`btn ${id == 20 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) + 1}`)}>Vai al prodotto successivo</button>
+                    {chooseNavigation(parseInt(id))}
+                    {/* <button className={`btn ${id == 1 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) - 1}`)}>Vai al prodotto precedente</button>
+                    <button className={`btn ${id == 20 && "d_none"}`} onClick={() => navigate(`/prodotti/${parseInt(id) + 1}`)}>Vai al prodotto successivo</button> */}
                 </div>
             </div>
         </main>
