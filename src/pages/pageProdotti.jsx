@@ -8,7 +8,7 @@ function PageProdotti() {
 
     const { budgetMode } = useBudget();
 
-    useEffect(getData, []);
+
 
     function productsShowed() {
         let _products = [...prodotti]

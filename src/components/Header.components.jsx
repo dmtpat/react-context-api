@@ -1,9 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { useBudget } from "../contexts/BudgetContext";
+import { useEffect } from "react";
+import { useData } from "../contexts/DataContext";
 
 function Header() {
     const { budgetMode, budgetValue } = useBudget();
-
+    const { getData } = useData();
+    useEffect(getData, []);
     return (
         <nav id="navBar" className="flex bg_light between v_center full_width">
 
