@@ -1,24 +1,12 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useBudget } from "../contexts/BudgetContext";
+import { useData } from "../contexts/DataContext";
 
 function PageProdotti() {
+    const { prodotti, showedProducts, setShowedProducts, getData } = useData();
+
     const { budgetMode } = useBudget();
-    const [prodotti, setProdotti] = useState([]);
-    const apiUrl = "https://fakestoreapi.com/products";
-    const [showedProducts, setShowedProducts] = useState([]);
-
-    function getData() {
-        axios.get(apiUrl).then((result) => {
-            setProdotti(result.data);
-            setShowedProducts(result.data);
-            console.log("raw results", result.data);
-            console.log("showedProducts", showedProducts);
-            console.log("prodotti", prodotti);
-        }).catch((error) => <p>Ops.. Qualcosa non va</p>)
-
-    }
 
     useEffect(getData, []);
 

@@ -1,8 +1,8 @@
 // creazione del Context per i dati e la chiamata axios
-
+import axios from 'axios'
 import { createContext, useContext, useState } from "react";
 
-const dataContext = createContext(null);
+const DataContext = createContext(null);
 
 function DataProvider({ children }) {
     const defaultData = [];
