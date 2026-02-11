@@ -1,15 +1,25 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useBudget } from "../contexts/BudgetContext";
 import { useEffect } from "react";
 import { useData } from "../contexts/DataContext";
+import { useLocation } from 'react-router'
 
 function Header() {
     const { budgetMode, budgetValue } = useBudget();
     const { getData } = useData();
     useEffect(getData, []);
+    const navigate = useNavigate();
+
+    const location = useLocation();
+    function consoleTest() {
+        console.log("Header location", location);
+        console.log("Header splitted", location.pathname.split("/").length);
+        console.log("Header splitted", location.pathname.split("/").length);
+    }
+
     return (
         <nav id="navBar" className="flex bg_light between v_center full_width">
-
+            {consoleTest()}
             <Link className="logo link flex v_center" to="/">
                 <img src="https://fakestoreapi.com/icons/logo.png" alt="e-commerce" />
                 <span >E-commerce</span>

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons'
 import { useBudget } from "../contexts/BudgetContext";
 import { useData } from "../contexts/DataContext";
+import { useLocation } from 'react-router'
 
 function PageProdottiDetail() {
     const { id } = useParams();
@@ -14,6 +15,14 @@ function PageProdottiDetail() {
     let apiUrl = `https://fakestoreapi.com/products/${parseInt(id)}`;
     const { budgetMode } = useBudget();
     const { showedProducts } = useData();
+
+    const location = useLocation();
+    function consoleTest() {
+        console.log("location", location);
+        console.log("pathname", location.pathname);
+        console.log("splitted", location.pathname.split("/"));
+        console.log("splitted", location.pathname.split("/").length);
+    }
 
     function getData() {
 
@@ -68,6 +77,7 @@ function PageProdottiDetail() {
                 <h1 className='full_width'>{prodotto.title} </h1>
                 <p className='category' >{prodotto.category}</p>
                 <div className="flex">
+                    {consoleTest()}
                     <div className="half_width">
                         <img src={prodotto.image} alt={prodotto.title} />
                     </div>

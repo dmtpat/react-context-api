@@ -8,6 +8,7 @@ import PageHome from "./pages/pageHome"
 import PageChiSiamo from "./pages/pageChiSiamo"
 import PageProdotti from "./pages/pageProdotti"
 import PageProdottiDetail from "./pages/pageProdottiDetail"
+import PageError from "./pages/pageError"
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
             <Route path='/chiSiamo' Component={PageChiSiamo} />
             <Route path='/prodotti' Component={PageProdotti} />
             <Route path='/prodotti/:id' Component={PageProdottiDetail} />
-            {/* <Route path='*' Component={Page_Error} /> */}
+            <Route path='*' Component={PageError} />
             {/* Questa ultima rotta ci permette di aprire una pagina nel caso di indirizzi non specificati, tutti gli altri */}
           </Route>
         </Routes>
